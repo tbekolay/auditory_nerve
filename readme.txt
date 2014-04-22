@@ -1,27 +1,35 @@
 %%% readme.txt for catmodel %%%
 
-This is Version 4 of the public distribution of the code for the cat auditory
+This is Version 5.1 of the public distribution of the code for the cat auditory
 periphery model with power-law adaptation of:
+
+Zilany, M.S.A., Bruce, I.C., Ibrahim, R.A., and Carney, L.H. "Improved parameters 
+        and expanded simulation options for a model of the auditory periphery," 
+        submitted to Journal of the Acoustical Society of America.
 
 Zilany, M.S.A., Bruce, I.C., Nelson, P.C., and Carney, L.H. (2009). "A phenomenological 
         model of the synapse between the inner hair cell and auditory nerve: Long-term 
         adaptation with power-law dynamics," Journal of the Acoustical Society of America
         126(5): 2390-2412.            
  
-Zilany, M. S. A. and Bruce, I. C. (2007). "Representation of the vowel
-        /eh/ in normal and impaired auditory nerve fibers: Model predictions of
-        responses in cats," Journal of the Acoustical Society of America
-        122(1):402–417.    
-
-Zilany, M. S. A. and Bruce, I. C. (2006). "Modeling auditory-nerve
-        responses for high sound pressure levels in the normal and impaired
-        auditory periphery," Journal of the Acoustical Society of
-        America 120(3):1446–1466.
-
 Please cite these papers if you publish any research results obtained with this
 code or any modified versions of this code.
 
 *** Change History ***
+
+Version 5.1:-
+
+-  Added option for human cochlear tuning from Glasberg & Moore (Hear. Res. 1990)
+
+Version 5.0:-
+
+-  Synapse model was fixed to get saturation rates at high CF fibers within a 
+   physiological range (Liberman, 1978). 
+
+-  Estimates of the instantaneous mean rate and variance of the discharge rate
+   have been added that includes the effects of refractoriness
+
+-  Parameters derived from humans have been added in addition to cat parameters.   
 
 Version 4.0:-
 
@@ -84,7 +92,7 @@ Version 2.0:-
 Version 1.1:-
 
 -  Switched to new CA gain versus CF function:
-   The only difference between the models presented in the two papers is
+   The only difference between the models presented in the two Zilany & Bruce papers is
    the function for cochlear amplifier (CA) gain versus characteristic frequency (CF),
    given by Eq. (6) in Zilany and Bruce (2006) and by Eq. (1) in Zilany and Bruce (2007).
    The new CA gain versus CF function of Zilany and Bruce (2007) is now used by default.
@@ -100,7 +108,7 @@ Version 1.1:-
 
 Version 1.0:-
 
--  Original Public Release
+-  Original Public Release of code for Zilany & Bruce (JASA 2006)
 
 
 The Matlab and C code included with this distribution is designed to be
@@ -108,20 +116,20 @@ compiled as a Matlab MEX file, i.e., the compiled model MEX function will run
 as if it were a Matlab function.  The code can be compiled within Matlab using
 the function:
 
-    mexcatmodel.m     
+    mexANmodel.m     
 
 Once you have compiled the MEX file in Matlab, type:
 
-    help catmodel
+    help ANmodel
 
 for instructions on how to call the MEX function.
 
 We have also included:-
 
-1. a sample Matlab script "testCatmodel.m" for setting up an acoustic stimulus
+1. a sample Matlab script "testANmodel.m" for setting up an acoustic stimulus
    and the model parameters and running the model, and
 
-2. a function "fitaudiogram.m" for estimating the parameters for outer and
+2. a function "fitaudiogram2.m" for estimating the parameters for outer and
    inner hair cell impairment, Cohc and Cihc, respectively, for a given
    audiogram.
 
@@ -142,4 +150,5 @@ and by Qing Tan and Laurel Carney for the model of:
     responses of auditory nerve fibers. II. Nonlinear tuning with a
     frequency glide,” J. Acoust. Soc. Am. 114, 2007–2020.
 
-%%% © Muhammad S. A. Zilany (msazilany@gmail.com), Ian C. Bruce, Rasha Ibrahim, Paul C. Nelson, and Laurel H. Carney     June 2006 - January 2010 %%%
+%%% © Muhammad S. A. Zilany (msazilany@gmail.com), Ian C. Bruce (ibruce@ieee.org),
+      Rasha A. Ibrahim, Paul C. Nelson, and Laurel H. Carney - December 2012 %%%
