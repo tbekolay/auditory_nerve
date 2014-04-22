@@ -1,4 +1,4 @@
-/* This is Version 5.1 of the code for auditory periphery model of:
+/* This is Version 5.2 of the code for auditory periphery model of:
 
     Zilany, M.S.A., Bruce, I.C., Nelson, P.C., and Carney, L.H. (2009). "A Phenomenological
         model of the synapse between the inner hair cell and auditory nerve : Long-term adaptation 
@@ -6,15 +6,14 @@
 
    with the modifications and simulation options described in:
 
-    Zilany, M.S.A., Bruce, I.C., Ibrahim, R.A., and Carney, L.H. "Improved parameters
+    Zilany, M.S.A., Bruce, I.C., Ibrahim, R.A., and Carney, L.H. (2013). "Improved parameters
         and expanded simulation options for a model of the auditory periphery," 
-        submitted to Journal of the Acoustical Society of America.
-
+        in Abstracts of the 36th ARO Midwinter Research Meeting.
+ 
    Humanization in this version includes:
    - Human middle-ear filter, based on the linear middle-ear circuit model of Pascal et al. (JASA 1998)
    - Human BM tuning, based on Shera et al. (PNAS 2002) or Glasberg & Moore (Hear. Res. 1990)
    - Human frequency-offset of control-path filter (i.e., cochlear amplifier mechanism), based on Greenwood (JASA 1990)
-   - Human latency vs CF function, based on Harte et al. (JASA 2009)
 
    The modifications to the BM tuning are described in:
 
@@ -28,10 +27,9 @@
    See the file readme.txt for details of compiling and running the model.  
    
    %%% © M. S. Arefeen Zilany (msazilany@gmail.com), Ian C. Bruce (ibruce@ieee.org),
-         Rasha A. Ibrahim, Paul C. Nelson, and Laurel H. Carney - December 2012 %%%
+         Rasha A. Ibrahim, Paul C. Nelson, and Laurel H. Carney - November 2013 %%%
    
 */
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -384,8 +382,10 @@ void IHCAN(double *px, double cf, int nrep, double tdres, int totalstim,
     if (species==1)
         delay      = delay_cat(cf);
     if (species>1)
-        delay      = delay_human(cf);
-	delaypoint =__max(0,(int) ceil(delay/tdres));    
+    {/*    delay      = delay_human(cf); */
+        delay      = delay_cat(cf); /* signal delay changed back to cat function for version 5.2 */
+    };
+    delaypoint =__max(0,(int) ceil(delay/tdres));    
          
     for(i=delaypoint;i<totalstim*nrep;i++)
 	{        

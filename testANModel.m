@@ -4,7 +4,7 @@ CF    = 1.5e3;   % CF in Hz;
 cohc  = 1.0;    % normal ohc function
 cihc  = 1.0;    % normal ihc function
 species = 1;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning)
-noiseType = 0;  % 0 for fixed fGn (1 for variable fGn)
+noiseType = 1;  % 1 for variable fGn (0 for fixed fGn)
 fiberType = 3;  % spontaneous rate (in spikes/s) of the fiber BEFORE refractory effects; "1" = Low; "2" = Medium; "3" = High
 implnt = 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
 % stimulus parameters
@@ -14,7 +14,7 @@ T  = 50e-3;  % stimulus duration in seconds
 rt = 2.5e-3; % rise/fall time in seconds
 stimdb = 65; % stimulus intensity in dB SPL
 % PSTH parameters
-nrep = 50;               % number of stimulus repetitions (e.g., 50);
+nrep = 1;               % number of stimulus repetitions (e.g., 50);
 psthbinwidth = 0.5e-3; % binwidth in seconds;
 
 t = 0:1/Fs:T-1/Fs; % time vector

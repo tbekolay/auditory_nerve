@@ -1,21 +1,29 @@
 %%% readme.txt for catmodel %%%
 
-This is Version 5.1 of the public distribution of the code for the cat auditory
+This is Version 5.2 of the public distribution of the code for the cat auditory
 periphery model with power-law adaptation of:
 
-Zilany, M.S.A., Bruce, I.C., Ibrahim, R.A., and Carney, L.H. "Improved parameters 
+Zilany, M.S.A., Bruce, I.C., and Carney, L.H. (2014, in press). "Updated parameters
         and expanded simulation options for a model of the auditory periphery," 
-        submitted to Journal of the Acoustical Society of America.
+        Journal of the Acoustical Society of America.
 
 Zilany, M.S.A., Bruce, I.C., Nelson, P.C., and Carney, L.H. (2009). "A phenomenological 
         model of the synapse between the inner hair cell and auditory nerve: Long-term 
         adaptation with power-law dynamics," Journal of the Acoustical Society of America
-        126(5): 2390-2412.            
+        126(5): 2390-2412.
+
+The human AN model parameters are based on :
+
+Ibrahim, R. A., and Bruce, I. C. (2010). "Effects of peripheral tuning on the auditory 		nerve's representation of speech envelope and temporal fine structure cues," in 		The Neurophysiological Bases of Auditory Perception, eds. E. A. Lopez-Poveda, A. 		R. Palmer, and R. Meddis, Springer, NY, chapter 40, pp. 429–438.            
  
 Please cite these papers if you publish any research results obtained with this
 code or any modified versions of this code.
 
 *** Change History ***
+
+version 5.2:-
+
+-  Reverted to old BM signal-front delay function for humans (i.e., it is the same as for the cat)
 
 Version 5.1:-
 
@@ -151,4 +159,4 @@ and by Qing Tan and Laurel Carney for the model of:
     frequency glide,” J. Acoust. Soc. Am. 114, 2007–2020.
 
 %%% © Muhammad S. A. Zilany (msazilany@gmail.com), Ian C. Bruce (ibruce@ieee.org),
-      Rasha A. Ibrahim, Paul C. Nelson, and Laurel H. Carney - December 2012 %%%
+      Rasha A. Ibrahim, Paul C. Nelson, and Laurel H. Carney - December 2013 %%%
