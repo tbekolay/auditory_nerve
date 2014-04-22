@@ -1,10 +1,10 @@
-/** 
-complex.c includes all of the COMPLEX math functions needed for model programs
+/* 
+complex.cpp includes all of the COMPLEX math functions needed for model programs
 */
 
 #include <stdlib.h>
 #include <math.h>
-#include "complex.h"
+#include "complex.hpp"
 
 /* divide */
 COMPLEX compdiv(COMPLEX ne,COMPLEX de)
@@ -67,11 +67,11 @@ COMPLEX compsubtract(COMPLEX complexA, COMPLEX complexB)
 }
 /* Get the real part of the complex */
 double REAL(COMPLEX compnum)
-{ return(compnum.x); }
+{ return(compnum.x); } 
 
 /* Get the imaginary part of the complex */
 double IMAG(COMPLEX compnum)
-{ return(compnum.y); }
+{ return(compnum.y); } 
 
 /* Get the conjugate of the complex signal */
 COMPLEX compconj(COMPLEX complexA)

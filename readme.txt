@@ -1,27 +1,61 @@
-%%% readme.txt for zbcatmodel %%%
+%%% readme.txt for catmodel %%%
 
-This is Version 2 of the public distribution of the code for the cat auditory
-periphery model of:
+This is Version 4 of the public distribution of the code for the cat auditory
+periphery model with power-law adaptation of:
 
-        Zilany, M. S. A. and Bruce, I. C. (2006). "Modeling auditory-nerve
-        responses for high sound pressure levels in the normal and impaired
-        auditory periphery," Journal of the Acoustical Society of
-        America 120(3):1446–1466,
-
-   and
+Zilany, M.S.A., Bruce, I.C., Nelson, P.C., and Carney, L.H. (2009). "A phenomenological 
+        model of the synapse between the inner hair cell and auditory nerve: Long-term 
+        adaptation with power-law dynamics," Journal of the Acoustical Society of America
+        126(5): 2390-2412.            
  
-        Zilany, M. S. A. and Bruce, I. C. (2007). "Representation of the vowel
+Zilany, M. S. A. and Bruce, I. C. (2007). "Representation of the vowel
         /eh/ in normal and impaired auditory nerve fibers: Model predictions of
         responses in cats," Journal of the Acoustical Society of America
-        122(1):402–417.
+        122(1):402–417.    
+
+Zilany, M. S. A. and Bruce, I. C. (2006). "Modeling auditory-nerve
+        responses for high sound pressure levels in the normal and impaired
+        auditory periphery," Journal of the Acoustical Society of
+        America 120(3):1446–1466.
 
 Please cite these papers if you publish any research results obtained with this
 code or any modified versions of this code.
 
 *** Change History ***
 
-Version 2.0:-
+Version 4.0:-
 
+-  In previous versions, we used spontaneous rate of the fiber to fill in the 
+   delay period (transmission, synaptic, etc.). In this version,
+   we used fractional Gaussian noise (fGn) during that delay period. 
+   
+
+-  A bug was fixed in the discharge generator (DG) portion of the code. For medium or 
+   low spont rates, it is likely that the rate starts with zero (because of
+   adapted and rectified fGn). In the DG, the initial "endoflastdeadtime" was 
+   computed by diving the log probability by rates (which ended up being negative infinity). 
+   In this version, we forced this time to be non-negative. 
+
+-  Model sampling rate should be 100 kHz (because the filter coefficients for 
+   power-law kernel were obtained for this sampling rate).
+
+Version 3.0:-
+
+-  The major improvement in this version of the code is the inclusion of 
+   power-law adaptation in the Synapse model.
+
+-  To improve memory usage, we have written two separate files: the first one 
+   (catmodel_IHC.c) takes the stimulus in Pa as input and provides IHC responses 
+   as output. The second one (catmodel_Synapse.c) takes the IHC output as input
+   and gives spike timings as the output. This allows to run the model for long 
+   duration of the input stimulus. 
+
+-  Note that, actual implementation of the power-law functions takes really long
+   time to finish computation. However, approximate implementation is as good 
+   as actual implementation for short duration stimulus.
+
+Version 2.0:-
+   
 -  Model now runs at sampling rates of 100, 200 and 500 kHz:
    The major improvement in this version of the code is that it is able run at
    100 kHz for model fibers with characteristic frequencies (CFs) up to 20 kHz.
@@ -74,34 +108,17 @@ compiled as a Matlab MEX file, i.e., the compiled model MEX function will run
 as if it were a Matlab function.  The code can be compiled within Matlab using
 the function:
 
-    mexzbcatmodel_lcc.m     if you are using the lcc compiler supplied with
-                            Matlab on a Win32 system; or
-
-    mexzbcatmodel_unix.m    if you are using a compiler such as gcc on a Unix
-                            system.
-
-The reason for the difference is that Unix compilers typically include the
-drand48() random number generator, which has the precision required for spike
-generation in this model.  The lcc compiler does not include drand48(), so I
-have made use of the Gnu Scientific Library (GSL; http://www.gnu.org/software/gsl/)
-equivalent.  The required files from the GSL are included with this distribution,
-as is a copy of the GNU General Public License (gpl.txt), under which the GSL
-is released.
-
-Note that since version 1.1 of the code, Microsoft C compilers are no longer supported,
-because there are issues with recent versions of the  Microsoft C compilers and
-recent Matlab releases.  Please switch to using the lcc compiler that comes with
-Matlab if you are using MS Windows.
+    mexcatmodel.m     
 
 Once you have compiled the MEX file in Matlab, type:
 
-    help zbcatmodel
+    help catmodel
 
 for instructions on how to call the MEX function.
 
-I have also included:-
+We have also included:-
 
-1. a sample Matlab script "testzbcatmodel.m" for setting up an acoustic stimulus
+1. a sample Matlab script "testCatmodel.m" for setting up an acoustic stimulus
    and the model parameters and running the model, and
 
 2. a function "fitaudiogram.m" for estimating the parameters for outer and
@@ -125,4 +142,4 @@ and by Qing Tan and Laurel Carney for the model of:
     responses of auditory nerve fibers. II. Nonlinear tuning with a
     frequency glide,” J. Acoust. Soc. Am. 114, 2007–2020.
 
-%%% © Ian C. Bruce (ibruce@ieee.org), M. S. Arefeen Zilany and Rasha Ibrahim, June 2006 - December 2007 %%%
+%%% © Muhammad S. A. Zilany (msazilany@gmail.com), Ian C. Bruce, Rasha Ibrahim, Paul C. Nelson, and Laurel H. Carney     June 2006 - January 2010 %%%
