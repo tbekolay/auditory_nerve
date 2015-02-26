@@ -1,8 +1,8 @@
 #ifndef _COMPLEX_HPP
 #define _COMPLEX_HPP
 
-/* COMPLEX.HPP header file		
- * use for complex arithmetic in C 
+/* COMPLEX.HPP header file
+ * use for complex arithmetic in C
  (part of them are from "C Tools for Scientists and Engineers" by L. Baker)
 */
 

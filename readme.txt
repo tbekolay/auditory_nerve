@@ -4,18 +4,18 @@ This is Version 5.2 of the public distribution of the code for the cat auditory
 periphery model with power-law adaptation of:
 
 Zilany, M.S.A., Bruce, I.C., and Carney, L.H. (2014, in press). "Updated parameters
-        and expanded simulation options for a model of the auditory periphery," 
+        and expanded simulation options for a model of the auditory periphery,"
         Journal of the Acoustical Society of America.
 
-Zilany, M.S.A., Bruce, I.C., Nelson, P.C., and Carney, L.H. (2009). "A phenomenological 
-        model of the synapse between the inner hair cell and auditory nerve: Long-term 
+Zilany, M.S.A., Bruce, I.C., Nelson, P.C., and Carney, L.H. (2009). "A phenomenological
+        model of the synapse between the inner hair cell and auditory nerve: Long-term
         adaptation with power-law dynamics," Journal of the Acoustical Society of America
         126(5): 2390-2412.
 
 The human AN model parameters are based on :
 
-Ibrahim, R. A., and Bruce, I. C. (2010). "Effects of peripheral tuning on the auditory 		nerve's representation of speech envelope and temporal fine structure cues," in 		The Neurophysiological Bases of Auditory Perception, eds. E. A. Lopez-Poveda, A. 		R. Palmer, and R. Meddis, Springer, NY, chapter 40, pp. 429–438.            
- 
+Ibrahim, R. A., and Bruce, I. C. (2010). "Effects of peripheral tuning on the auditory          nerve's representation of speech envelope and temporal fine structure cues," in                 The Neurophysiological Bases of Auditory Perception, eds. E. A. Lopez-Poveda, A.                R. Palmer, and R. Meddis, Springer, NY, chapter 40, pp. 429–438.
+
 Please cite these papers if you publish any research results obtained with this
 code or any modified versions of this code.
 
@@ -31,47 +31,47 @@ Version 5.1:-
 
 Version 5.0:-
 
--  Synapse model was fixed to get saturation rates at high CF fibers within a 
-   physiological range (Liberman, 1978). 
+-  Synapse model was fixed to get saturation rates at high CF fibers within a
+   physiological range (Liberman, 1978).
 
 -  Estimates of the instantaneous mean rate and variance of the discharge rate
    have been added that includes the effects of refractoriness
 
--  Parameters derived from humans have been added in addition to cat parameters.   
+-  Parameters derived from humans have been added in addition to cat parameters.
 
 Version 4.0:-
 
--  In previous versions, we used spontaneous rate of the fiber to fill in the 
+-  In previous versions, we used spontaneous rate of the fiber to fill in the
    delay period (transmission, synaptic, etc.). In this version,
-   we used fractional Gaussian noise (fGn) during that delay period. 
-   
+   we used fractional Gaussian noise (fGn) during that delay period.
 
--  A bug was fixed in the discharge generator (DG) portion of the code. For medium or 
+
+-  A bug was fixed in the discharge generator (DG) portion of the code. For medium or
    low spont rates, it is likely that the rate starts with zero (because of
-   adapted and rectified fGn). In the DG, the initial "endoflastdeadtime" was 
-   computed by diving the log probability by rates (which ended up being negative infinity). 
-   In this version, we forced this time to be non-negative. 
+   adapted and rectified fGn). In the DG, the initial "endoflastdeadtime" was
+   computed by diving the log probability by rates (which ended up being negative infinity).
+   In this version, we forced this time to be non-negative.
 
--  Model sampling rate should be 100 kHz (because the filter coefficients for 
+-  Model sampling rate should be 100 kHz (because the filter coefficients for
    power-law kernel were obtained for this sampling rate).
 
 Version 3.0:-
 
--  The major improvement in this version of the code is the inclusion of 
+-  The major improvement in this version of the code is the inclusion of
    power-law adaptation in the Synapse model.
 
--  To improve memory usage, we have written two separate files: the first one 
-   (catmodel_IHC.c) takes the stimulus in Pa as input and provides IHC responses 
+-  To improve memory usage, we have written two separate files: the first one
+   (catmodel_IHC.c) takes the stimulus in Pa as input and provides IHC responses
    as output. The second one (catmodel_Synapse.c) takes the IHC output as input
-   and gives spike timings as the output. This allows to run the model for long 
-   duration of the input stimulus. 
+   and gives spike timings as the output. This allows to run the model for long
+   duration of the input stimulus.
 
 -  Note that, actual implementation of the power-law functions takes really long
-   time to finish computation. However, approximate implementation is as good 
+   time to finish computation. However, approximate implementation is as good
    as actual implementation for short duration stimulus.
 
 Version 2.0:-
-   
+
 -  Model now runs at sampling rates of 100, 200 and 500 kHz:
    The major improvement in this version of the code is that it is able run at
    100 kHz for model fibers with characteristic frequencies (CFs) up to 20 kHz.
@@ -85,7 +85,7 @@ Version 2.0:-
    100 and 500 kHz.
 
 -  New spike generator code:
-   We have incorporated the spike generator code written by B. Scott Jackson (bsj22@cornell.edu) 
+   We have incorporated the spike generator code written by B. Scott Jackson (bsj22@cornell.edu)
    (Scott's original code is available from Laurel Carney's web site at:
     http://www.urmc.rochester.edu/smd/Nanat/faculty-research/lab-pages/LaurelCarney/auditory-models.cfm)
    This code uses a renewal process (i.e., inter-spike interval) approach that
@@ -124,7 +124,7 @@ compiled as a Matlab MEX file, i.e., the compiled model MEX function will run
 as if it were a Matlab function.  The code can be compiled within Matlab using
 the function:
 
-    mexANmodel.m     
+    mexANmodel.m
 
 Once you have compiled the MEX file in Matlab, type:
 

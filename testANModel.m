@@ -1,6 +1,6 @@
 % model fiber parameters
 clear all; 
-CF    = 1.5e3;   % CF in Hz;   
+CF    = 1500;   % CF in Hz;   
 cohc  = 1.0;    % normal ohc function
 cihc  = 1.0;    % normal ihc function
 species = 1;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning)
